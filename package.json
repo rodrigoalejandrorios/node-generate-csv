@@ -2,7 +2,8 @@
   "name": "node-generate-csv",
   "version": "1.0.1",
   "description": "Create CSV by codrrdev",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "start": "tsc && node dist/index.js"

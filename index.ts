@@ -1,6 +1,12 @@
 import * as fs from "fs";
 import path from "path";
 
+/**
+ * Create CSV by object or JSON file
+ * 
+ * @param arg - Data of object for generate CSV
+ * @param filename - Name to export file (include name folder)
+ */
 export class CreateExportCSV<T extends {}> {
   constructor(public arg: T[], public filename: string) {
     this.csvFactory(this.arg, this.filename);
