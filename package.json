@@ -1,6 +1,6 @@
 {
   "name": "node-generate-csv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create CSV by codrrdev",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,8 @@
   "keywords": ["csv", "Create CSV", "Excel"],
   "author": "Rodrigo Rios",
   "license": "ISC",
+  "repository": "rodrigoalejandrorios/node-generate-csv"
+  ,
   "devDependencies": {
     "@types/jest": "^29.2.3",
     "@types/node": "^18.11.9",
