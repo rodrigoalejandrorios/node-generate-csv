@@ -1,4 +1,4 @@
-# SortifyJS
+# node-generate-csv
 
 [![npm version](https://img.shields.io/npm/v/json.sortify.svg)](https://www.npmjs.com/package/node-generate-csv)
 
