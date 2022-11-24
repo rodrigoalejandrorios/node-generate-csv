@@ -1,9 +1,11 @@
 import * as fs from "fs";
 import path from "path";
 
+
+
 /**
  * Create CSV by object or JSON file
- * 
+ *
  * @param arg - Data of object for generate CSV
  * @param filename - Name to export file (include name folder)
  */
@@ -12,7 +14,7 @@ export class CreateExportCSV<T extends {}> {
     this.csvFactory(this.arg, this.filename);
   }
 
-  public getString: string = ''
+  public getString: string = "";
 
   private csvFactory(arg: T[], nameFile: string) {
     let titlesCsv: any[] = [];
@@ -26,14 +28,20 @@ export class CreateExportCSV<T extends {}> {
     for (let i = 0; i < values.length; i++) {
       let initArray = [];
       for (let j = 0; j < title.length; j++) {
-        initArray.push(values[i][j] || "");
+        if (arg[i][title[j] as keyof T] !== undefined) {
+          initArray.push(
+            `${arg[i][title[j] as keyof T]}`
+          );
+        } else {
+          initArray.push("");
+        }
       }
       valuesCsv = [...valuesCsv, initArray.join(",") + ","];
     }
 
     const data: string = [title.join(",") + ",", ...valuesCsv].join("\n");
 
-    this.getString = data.split("\n").join('')
+    this.getString = data.split("\n").join("");
 
     fs.writeFile(
       path.resolve(process.cwd() + `/${nameFile}.csv`),
@@ -41,13 +49,10 @@ export class CreateExportCSV<T extends {}> {
       async (err) => {
         if (err) {
           console.log(err.message);
-          return
+          return;
         }
-        console.log("CSV created! 😎🤟")
-        
+        console.log("CSV created! 😎🤟");
       }
     );
   }
 }
-
-
